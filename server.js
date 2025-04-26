@@ -12,6 +12,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/donors", donorRoutes);
+app.get("/health", (req, res) => {
+  res.status(200).send({ status: "Ready" });
+});
 
 mongoose
   .connect(process.env.MONGO_URI, {
